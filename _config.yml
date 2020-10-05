@@ -1,0 +1,8 @@
+title: literate fizz buzz
+author: deathbeds
+email: tony.fast@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  a sample literate program about fizzbuzz
+
+execute:
+  execute_notebooks: "off"

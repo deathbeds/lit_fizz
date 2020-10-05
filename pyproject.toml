@@ -1,0 +1,18 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "lit_fizz"
+author = "deathbeds"
+author-email = "tony.fast@gmail.com"
+home-page = "http://github.com/deathbeds/lit_fizz"
+classifiers = ["License :: OSI Approved :: MIT License"]
+requires=["tingle"]
+
+[tool.pytest.ini_options]
+addopts = "lit_fizz/readme.md"
+
+[tool.flit.metadata.requires-extra]
+test = ["pytest", "nbval", "pytest-github-actions-annotate-failures"]
+doc = ["jupyter-book", "pyppeteer",  "doit"]
