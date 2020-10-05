@@ -2,17 +2,40 @@
 
 a fizzbuzz program written as a literate program.
 
+## continuous integration
+
+tests and builds documentation using the same content. usually documentation, tests, and code are separated which is useful for mature ideas. meanwhile, literate programs are more flex in more ambiguous problems.
+
+* tests the module with [`pytest`][pytest]
+* produces documentation on [github pages].
+* this repository produces a pdf artifact.
+
 ## developer
 
-the doit tasks are used by github actions to test and build docs.
+the [`doit`][doit] tasks are used by github actions to test and build docs.
 
-    def task_book():
+        #pip install doit 
+        
+        def task_book():
 
-build a book with [jupyter book] based on the `"_toc.yml" and "_config.yml"` configuration files.
+build a html book with [jupyter book] based on the `"_toc.yml" and "_config.yml"` configuration files.
 
-        return dict(actions=["jb build ."], file_dep=["_toc.yml"], targets=["_build/html"])
+            return dict(actions=["jb build ."], file_dep=["_toc.yml"], targets=["_build/html"])
 
-    def task_pdf():
-        return dict(actions=["jb build . --builder pdfhtml"], file_dep=['_toc.yml'], targets=['_build/pdf/book.pdf'])
+        def task_pdf():
+
+build a pdf version of the html book.
+
+            return dict(actions=["jb build . --builder pdfhtml"], file_dep=['_toc.yml'], targets=['_build/pdf/book.pdf'])
+
+        def task_develop():
+
+setup up develop mode using [`flit`][flit]
+
+            return dict(actions=["flit install -s"], file_dep=['pyproject.yml'])
 
 [jupyter book]: #
+[flit]: #
+[doit]: #
+[pytest]: #
+[github pages]: #
