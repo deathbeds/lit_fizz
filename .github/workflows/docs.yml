@@ -24,7 +24,7 @@ jobs:
     - name: Build docs
       run: |
         sudo apt install pandoc      
-        pip install .[doc]
+        pip install .[doc] -rrequirements.txt # requirements are for an hot dependencies.
         doit pdf
 
     - uses: actions/upload-artifact@v2
