@@ -23,8 +23,9 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Build docs
       run: |
-        sudo apt install pandoc      
-        pip install .[doc] -rrequirements.txt # requirements are for an hot dependencies.
+        sudo apt install pandoc
+        pip install -rrequirements.txt # requirements are for an hot dependencies.
+        pip install .[doc] 
         doit pdf
 
     - uses: actions/upload-artifact@v2
