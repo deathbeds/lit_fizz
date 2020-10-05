@@ -12,7 +12,9 @@ tests and builds documentation using the same content. usually documentation, te
 
 ## developer
 
-the [`doit`][doit] tasks are used by github actions to test and build docs.
+the [`doit`][doit] tasks are used by github actions to test and build docs. the `"readme.md"` document
+is imported in the `"dodo.py"` configuration file, and any function beginning with `"task_"` is 
+recognized by [`doit`][doit].
 
         #pip install doit 
 
