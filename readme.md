@@ -4,6 +4,8 @@ a fizzbuzz program written as a literate program.
 
 ## developer
 
+the doit tasks are used by github actions to test and build docs.
+
     def task_book():
 
 build a book with [jupyter book] based on the `"_toc.yml" and "_config.yml"` configuration files.
