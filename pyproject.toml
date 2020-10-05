@@ -11,7 +11,7 @@ classifiers = ["License :: OSI Approved :: MIT License"]
 requires=["tingle", "typer"]
 
 [tool.pytest.ini_options]
-addopts = "lit_fizz/readme.md"
+addopts = "lit_fizz/readme.md -pno:warnings"
 
 [tool.flit.metadata.requires-extra]
 test = ["pytest", "nbval", "pytest-github-actions-annotate-failures"]
