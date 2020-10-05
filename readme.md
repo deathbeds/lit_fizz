@@ -15,7 +15,10 @@ tests and builds documentation using the same content. usually documentation, te
 the [`doit`][doit] tasks are used by github actions to test and build docs.
 
         #pip install doit 
-        
+
+### building the documentation.
+
+        # pip install .[doc] # requires the module tests dependencies.
         def task_book():
 
 build a html book with [jupyter book] based on the `"_toc.yml" and "_config.yml"` configuration files.
@@ -28,11 +31,19 @@ build a pdf version of the html book.
 
             return dict(actions=["jb build . --builder pdfhtml"], file_dep=['_toc.yml'], targets=['_build/pdf/book.pdf'])
 
+### development mode
+
         def task_develop():
 
-setup up develop mode using [`flit`][flit]
+setup up develop mode using [`flit`][flit] with the configuration defined in `"pyproject.yml"`.
 
             return dict(actions=["flit install -s"], file_dep=['pyproject.yml'])
+
+### testing mode.
+
+run `pytest` in the root directory to test this module, extended settings are set in `"pyproject.yml"`.
+
+        #!pytest
 
 [jupyter book]: #
 [flit]: #
